@@ -61,32 +61,6 @@ function getRandomQuote() {
 
 // This is my printQuote function
 
-function printQuote() {
-  var currentQuote = getRandomQuote();
-  var html = "<p class='quote'>" + currentQuote.quote + "</p>";
-  html += "<p class='source'>" + currentQuote.source;
-
-
-  //Conditional if statements for citation and year
-
-  if ("citation" in currentQuote) {
-    html += "<span class='citation'>" + currentQuote.citation + "</span>";
-  }
-
-  if ("year" in currentQuote) {
-    html += "<span class='year'>" + currentQuote.year + "</span>" + "</p>"
-  };
-
-
-  // Transfers info from the html variable to the quote-box
-
-  document.getElementById("quote-box").innerHTML = html;
-}
-
-//Runs the printQuote function so quotes print to page
-
-printQuote();
-
 /***
  * click event listener for the print quote button
  * DO NOT CHANGE THE CODE BELOW!!
