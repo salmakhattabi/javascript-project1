@@ -66,21 +66,31 @@ function getRandomQuote() {
 /***
  * `printQuote` function
 ***/
+/***
+ * `printQuote` function
+***/
 function printQuote(){
   let html = ``;
   let nextRandomQuote = getRandomQuote();
-
+  let bgColor = randomColor();
   html += `
-    <p class="quote">${nextRandomQuote.quote}</p>
-    <p class="source">${nextRandomQuote.source}</p>
-    <span class="citation">${nextRandomQuote.citation}</span>
-    <span class="year">${nextRandomQuote.year}</span>
+    ${(nextRandomQuote.quote) ? '<p class="quote">'+nextRandomQuote.quote+'</p>' : ''}
+    <p class="source">${(nextRandomQuote.source) ? nextRandomQuote.source : ''}
+    ${(nextRandomQuote.citation) ? '<span class="citation">'+nextRandomQuote.citation+'</span>' : ''}
+    ${(nextRandomQuote.year) ? '<span class="year">'+nextRandomQuote.year+'</span>' : ''}
+    ${(nextRandomQuote.tags) ? '<span class="tags">'+nextRandomQuote.tags+'</span>' : ''}</p>
     `
 
 document.getElementById("quote-box").innerHTML = html;
+document.body.style.backgroundColor = '#'+bgColor;
 }
 
 printQuote();
+
+setInterval(() => {
+  printQuote();
+}, 3000);
+
 
 
 
